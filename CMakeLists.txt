@@ -5,7 +5,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_CXX_STANDARD 14)
 
 # Import OpenCV
-find_package(OpenCV REQUIRED)
+# find_package(OpenCV REQUIRED)
 message(STATUS "OpenCV_FOUND: " ${OpenCV_FOUND})
 message(STATUS "OpenCV_INCLUDE_DIRS: " ${OpenCV_INCLUDE_DIRS})
 message(STATUS "OpenCV_DIR: " ${OpenCV_DIR})
