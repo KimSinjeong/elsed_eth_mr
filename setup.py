@@ -62,6 +62,7 @@ class CMakeBuild(build_ext):
 
         cmake_args += ['-DOpenCV_INCLUDE_DIRS=' + '/home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/other_builds/opencv/arm64-v8a__ndk_target_21/opencv/include']
         cmake_args += ['-DOpenCV_LIBS=' + '/home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr-demo/arm64-v8a']
+        cmake_args += ['-DOpenCV_FOUND=' + '1']
         
         print(['cmake', ext.sourcedir] + cmake_args)
         subprocess.check_call(['cmake', ext.sourcedir] + cmake_args, cwd=self.build_temp, env=env)
