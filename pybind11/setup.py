@@ -144,7 +144,7 @@ with remove_output("pybind11/include", "pybind11/share"):
         cmd = ["cmake", "-S", ".", "-B", tmpdir] + [
             "-DCMAKE_INSTALL_PREFIX=pybind11",
             "-DBUILD_TESTING=OFF",
-            "-DPYBIND11_NOPYTHON=ON",
+            "-DPYBIND11_NOPYTHON=OFF",
         ]
         cmake_opts = dict(cwd=DIR, stdout=sys.stdout, stderr=sys.stderr)
         subprocess.check_call(cmd, **cmake_opts)
