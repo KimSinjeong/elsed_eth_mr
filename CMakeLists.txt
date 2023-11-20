@@ -21,8 +21,11 @@ target_link_libraries(elsed ${OpenCV_LIBS})
 add_executable(elsed_main src/main.cpp)
 target_link_libraries(elsed_main elsed ${OpenCV_LIBS})
 
+find_package(PythonLibs REQUIRED)
+include_directories(${PYTHON_INCLUDE_DIRS})
+
 # Create the python library using pybind11
 add_subdirectory(pybind11)
 pybind11_add_module(pyelsed src/PYAPI.cpp)
-target_link_libraries(pyelsed PRIVATE ${OpenCV_LIBS} elsed)
+target_link_libraries(pyelsed PRIVATE ${OpenCV_LIBS} elsed ${PYTHON_LIBRARIES})
 target_compile_definitions(pyelsed PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
