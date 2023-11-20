@@ -8,6 +8,7 @@ from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
 from distutils.version import LooseVersion
 
+import sysconfig
 
 class CMakeExtension(Extension):
     def __init__(self, name, sourcedir=''):
@@ -55,6 +56,10 @@ class CMakeBuild(build_ext):
         )
         if not os.path.exists(self.build_temp):
             os.makedirs(self.build_temp)
+
+        cmake_args += '-DPYTHON_INCLUDE_DIR=' + sysconfig.get_path('include')
+        cmake_args += '-DPYTHON_LIBRARY=' + sysconfig.get_config_var('LIBDIR')
+        
         print(['cmake', ext.sourcedir] + cmake_args)
         subprocess.check_call(['cmake', ext.sourcedir] + cmake_args, cwd=self.build_temp, env=env)
         subprocess.check_call(['cmake', '--build', '.'] + build_args, cwd=self.build_temp)
