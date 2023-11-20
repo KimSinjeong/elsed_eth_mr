@@ -64,6 +64,7 @@ class CMakeBuild(build_ext):
         cmake_args += ['-DOpenCV_INCLUDE_DIRS=' + '/usr/local/include/opencv4']
         cmake_args += ['-DOpenCV_LIBS=' + '/home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr-demo/arm64-v8a']
         cmake_args += ['-DOpenCV_FOUND=' + '1']
+        cmake_args += ['-llibopencv_calib3d', '-llibopencv_core', '-llibopencv_dnn', '-llibopencv_features2d', '-llibopencv_flann', '-llibopencv_gapi', '-llibopencv_highgui', '-llibopencv_imgcodecs', '-llibopencv_imgproc', '-llibopencv_ml', '-llibopencv_objdetect', '-llibopencv_photo', '-llibopencv_stitching', '-llibopencv_video', '-llibopencv_videoio']
         
         print(['cmake', ext.sourcedir] + cmake_args)
         subprocess.check_call(['cmake', ext.sourcedir] + cmake_args, cwd=self.build_temp, env=env)
