@@ -62,8 +62,8 @@ class CMakeBuild(build_ext):
 
         #cmake_args += ['-DOpenCV_INCLUDE_DIRS=' + '/home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/other_builds/opencv/arm64-v8a__ndk_target_21/opencv/include']
         cmake_args += ['-DOpenCV_INCLUDE_DIRS=' + '/usr/local/include/opencv4']
-        cmake_args += ['-DOpenCV_DIR=' + '/home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr-demo/arm64-v8a']
-        cmake_args += ['-DOpenCV_LIBS=' + "['opencv_calib3d' 'opencv_core' 'opencv_dnn' 'opencv_features2d' 'opencv_flann' 'opencv_gapi' 'opencv_highgui' 'opencv_imgcodecs' 'opencv_imgproc' 'opencv_ml' 'opencv_objdetect' 'opencv_photo' 'opencv_stitching' 'opencv_video' 'opencv_videoio']"]
+        #cmake_args += ['-DOpenCV_DIR=' + '/home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr-demo/arm64-v8a']
+        #cmake_args += ['-DOpenCV_LIBS=' + "['opencv_calib3d' 'opencv_core' 'opencv_dnn' 'opencv_features2d' 'opencv_flann' 'opencv_gapi' 'opencv_highgui' 'opencv_imgcodecs' 'opencv_imgproc' 'opencv_ml' 'opencv_objdetect' 'opencv_photo' 'opencv_stitching' 'opencv_video' 'opencv_videoio']"]
         # cmake_args += ['-DOpenCV_LIBS=' + '/home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr-demo/arm64-v8a']
         cmake_args += ['-DOpenCV_FOUND=' + '1']
         # cmake_args += ['-llibopencv_calib3d', '-llibopencv_core', '-llibopencv_dnn', '-llibopencv_features2d', '-llibopencv_flann', '-llibopencv_gapi', '-llibopencv_highgui', '-llibopencv_imgcodecs', '-llibopencv_imgproc', '-llibopencv_ml', '-llibopencv_objdetect', '-llibopencv_photo', '-llibopencv_stitching', '-llibopencv_video', '-llibopencv_videoio']
