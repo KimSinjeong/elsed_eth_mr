@@ -3,10 +3,9 @@ project(pyelsed)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_IGNORE_PREFIX_PATH '/usr/local/')
 
 # Import OpenCV
-find_package(OpenCV REQUIRED)
+find_package(OpenCV REQUIRED CMAKE_SYSTEM_IGNORE_PATH)
 message(STATUS "OpenCV_FOUND: " ${OpenCV_FOUND})
 message(STATUS "OpenCV_INCLUDE_DIRS: " ${OpenCV_INCLUDE_DIRS})
 # message(STATUS "OpenCV_DIR: " ${OpenCV_DIR})
@@ -23,7 +22,7 @@ target_link_libraries(elsed ${OpenCV_LIBS})
 add_executable(elsed_main src/main.cpp)
 target_link_libraries(elsed_main elsed ${OpenCV_LIBS})
 
-find_package(PythonLibs REQUIRED)
+find_package(PythonLibs REQUIRED CMAKE_SYSTEM_IGNORE_PATH)
 include_directories(${PYTHON_INCLUDE_DIRS})
 
 # Create the python library using pybind11
