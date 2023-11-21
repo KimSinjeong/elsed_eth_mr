@@ -58,9 +58,9 @@ class CMakeBuild(build_ext):
             os.makedirs(self.build_temp)
 
         # cmake_args += ['-DPYTHON_INCLUDE_DIR=' + sysconfig.get_path('include')]
-        cmake_args += ['-DPYTHON_INCLUDE_DIR=/home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/other_builds/python3/arm64-v8a__ndk_target_21/python3/Include']
+        #cmake_args += ['-DPYTHON_INCLUDE_DIR=/home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/other_builds/python3/arm64-v8a__ndk_target_21/python3/Include']
         # cmake_args += ['-DPYTHON_LIBRARY=' + sysconfig.get_config_var('LIBDIR')]
-        cmake_args += ['-DPYTHON_LIBRARY=/home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/other_builds/python3/arm64-v8a__ndk_target_21/python3/android-build']
+        #cmake_args += ['-DPYTHON_LIBRARY=/home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/other_builds/python3/arm64-v8a__ndk_target_21/python3/android-build']
 
         #cmake_args += ['-DOpenCV_INCLUDE_DIRS=' + '/home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/other_builds/opencv/arm64-v8a__ndk_target_21/opencv/include']
         #cmake_args += ['-DOpenCV_INCLUDE_DIRS=' + '/usr/local/include/opencv4']
