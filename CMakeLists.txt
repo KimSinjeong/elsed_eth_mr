@@ -5,10 +5,10 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_CXX_STANDARD 14)
 
 # Import OpenCV
-# find_package(OpenCV REQUIRED)
+find_package(OpenCV REQUIRED)
 message(STATUS "OpenCV_FOUND: " ${OpenCV_FOUND})
 message(STATUS "OpenCV_INCLUDE_DIRS: " ${OpenCV_INCLUDE_DIRS})
-message(STATUS "OpenCV_DIR: " ${OpenCV_DIR})
+# message(STATUS "OpenCV_DIR: " ${OpenCV_DIR})
 message(STATUS "OpenCV_LIBS: " ${OpenCV_LIBS})
 include_directories(${OpenCV_INCLUDE_DIRS})
 
@@ -16,43 +16,11 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 set(LIB_SOURCES "src/EdgeDrawer.cpp" "src/ELSED.cpp" "src/FullSegmentInfo.cpp")
 include_directories(src)
 add_library(elsed ${LIB_SOURCES})
-target_link_libraries(elsed 
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_calib3d.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_core.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_dnn.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_features2d.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_flann.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_gapi.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_highgui.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_imgcodecs.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_imgproc.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_ml.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_objdetect.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_photo.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_stitching.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_video.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_videoio.so
-)
+target_link_libraries(elsed ${OpenCV_LIBS})
 
 # ELSED executable demo
 add_executable(elsed_main src/main.cpp)
-target_link_libraries(elsed_main elsed 
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_calib3d.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_core.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_dnn.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_features2d.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_flann.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_gapi.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_highgui.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_imgcodecs.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_imgproc.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_ml.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_objdetect.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_photo.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_stitching.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_video.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_videoio.so
-)
+target_link_libraries(elsed_main elsed ${OpenCV_LIBS})
 
 find_package(PythonLibs REQUIRED)
 include_directories(${PYTHON_INCLUDE_DIRS})
@@ -60,21 +28,5 @@ include_directories(${PYTHON_INCLUDE_DIRS})
 # Create the python library using pybind11
 add_subdirectory(pybind11)
 pybind11_add_module(pyelsed src/PYAPI.cpp)
-target_link_libraries(pyelsed PRIVATE elsed ${PYTHON_LIBRARIES}
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_calib3d.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_core.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_dnn.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_features2d.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_flann.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_gapi.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_highgui.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_imgcodecs.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_imgproc.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_ml.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_objdetect.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_photo.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_stitching.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_video.so
-  /home/sjkim/Documents/MR/mr-library-demo/.buildozer/android/platform/build-arm64-v8a/build/libs_collections/mr_demo/arm64-v8a/libopencv_videoio.so
-)
+target_link_libraries(pyelsed PRIVATE elsed ${PYTHON_LIBRARIES} ${OpenCV_LIBS})
 target_compile_definitions(pyelsed PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
