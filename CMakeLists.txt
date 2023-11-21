@@ -3,6 +3,7 @@ project(pyelsed)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_IGNORE_PREFIX_PATH '/usr/local/')
 
 # Import OpenCV
 find_package(OpenCV REQUIRED)
