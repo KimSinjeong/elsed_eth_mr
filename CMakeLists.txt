@@ -23,7 +23,7 @@ target_link_libraries(elsed ${OpenCV_LIBS})
 add_executable(elsed_main src/main.cpp)
 target_link_libraries(elsed_main elsed ${OpenCV_LIBS})
 
-find_package(PythonLibs REQUIRED CMAKE_SYSTEM_IGNORE_PATH)
+find_package(PythonLibs REQUIRED PATHS $ENV{PYTHON_LOCATION} NO_DEFAULT_PATH)
 include_directories(${PYTHON_INCLUDE_DIRS})
 
 # Create the python library using pybind11
