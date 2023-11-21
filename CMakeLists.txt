@@ -24,6 +24,7 @@ add_executable(elsed_main src/main.cpp)
 target_link_libraries(elsed_main elsed ${OpenCV_LIBS})
 
 set(PYTHON_LIBRARY $ENV{PYTHON_LIBRARY})
+set(PYTHON_INCLUDE_DIR $ENV{PYTHON_INCLUDE_DIR})
 find_package(PythonLibs REQUIRED)
 include_directories(${PYTHON_INCLUDE_DIRS})
 
